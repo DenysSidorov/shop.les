@@ -3,7 +3,7 @@
 class Product
 {
 
-    const SHOW_BY_DEFAULT = 4;
+    const SHOW_BY_DEFAULT = 6;
 
     /**
      * Returns an array of products
