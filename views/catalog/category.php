@@ -73,13 +73,12 @@
                                 </div>
                             </div>
                         <?php endforeach; ?>
-
-                        <!-- Постраничная навигация -->
-                        <?php if ($viewPaginatin): ?>
-                            <?php echo $pagination->get(); ?>
-                        <?php endif; ?>
                     </div><!--features_items-->
 
+                    <!-- Постраничная навигация -->
+                    <?php if ($viewPaginatin): ?>
+                        <?php echo $pagination->get(); ?>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>

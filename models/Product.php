@@ -3,7 +3,7 @@
  class Product
 {
 
-     private static $onePageView = 3;
+     private static $onePageView = 2;
 
     public static function setOnePageView($number){
         Product::$onePageView = $number;
