@@ -14,6 +14,7 @@ class Pagination
      */
     private $max = 10;
 
+
     /**
      * 
      * @var Ключ для GET, в который пишется номер страницы

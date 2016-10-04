@@ -4,6 +4,7 @@
 //include_once ROOT . '/models/Product.php';
 //include_once ROOT . '/components/Pagination.php';
 */
+//include_once ROOT . '../models/Category.php';
 class CatalogController
 {
 
@@ -13,7 +14,8 @@ class CatalogController
         $categories = Category::getCategoriesList();
 
         $latestProducts = array();
-        $latestProducts = Product::getLatestProducts(12);
+        /**/
+        $latestProducts = Product::getLatestProducts(Product::getOnePageView());
 
         require_once(ROOT . '/views/catalog/index.php');
 
@@ -26,6 +28,7 @@ class CatalogController
         //echo $page.'  page # '.'<br>';
 
         $categories = array();
+        //include_once  '../models/Category.php';
         $categories = Category::getCategoriesList(); //arr[row][params]
 
         $categoryProducts = array();
@@ -33,9 +36,11 @@ class CatalogController
 
         // формируем количество записей для класса paginatin;
         $total = Product::getTotalProductsInCategory($categoryId);
-
+/**/
+        $viewPaginatin =  (Product::getTotalProductsInCategory($categoryId)>Product::getOnePageView()) ? true : false;
+/**/
         // Создаем объект Pagination - постраничная навигация
-        $pagination = new Pagination($total, $page, Product::SHOW_BY_DEFAULT, 'page-');
+        $pagination = new Pagination($total, $page, Product::getOnePageView(), 'page-');
 
         require_once(ROOT . '/views/catalog/category.php');
 
@@ -43,3 +48,13 @@ class CatalogController
     }
 
 }
+/*  We created AutoLoad Class, which do it
+//include_once ROOT . '/models/Category.php';
+//include_once ROOT . '/models/Product.php';
+//include_once ROOT . '/components/Pagination.php';
+*/
+/*  We created AutoLoad Class, which do it
+include_once ROOT . '/models/Category.php';
+//include_once ROOT . '/models/Product.php';
+//include_once ROOT . '/components/Pagination.php';
+*/

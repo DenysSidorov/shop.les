@@ -19,15 +19,6 @@ class Category
 
         $i = 0;
 
-        /*
-        массив Танки
-        $t = array('Тигр','Пантера','Т-34','Аль Халид');
-         массив Корабли
-        $k = array('Кузнецов','Ямато','Ясень','Петропавловск');
-         двумерный массив Техника
-        $THN = array($t, $k);
-        */
-
         while ($row = $result->fetch()) {
             $categoryList[$i]['id'] = $row['id'];
             $categoryList[$i]['name'] = $row['name'];

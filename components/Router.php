@@ -77,6 +77,7 @@ class Router
 
                 // see https://php.ru/manual/function.call-user-func-array.html
                 //  Передаем в actionName $parameters
+                //print_r($parameters);
                 $result = call_user_func_array(array($controllerObject, $actionName), $parameters);
                 
                 
