@@ -19,4 +19,39 @@ class SiteController
         return true;
     }
 
+    public function actionContact() {
+
+        $userEmail = '';
+        $userText = '';
+        $result = false;
+
+        if (isset($_POST['submit'])) {
+
+            $userEmail = $_POST['userEmail'];
+            $userText = $_POST['userText'];
+
+            $errors = false;
+
+            // Валидация полей
+            if (!User::checkEmail($userEmail)) {
+                $errors[] = 'Неправильный email';
+            }
+
+            if ($errors == false) {
+                $adminEmail = '2wsxcde34rfvvfr4@gmail.com';
+                $message = "Текст: {$userText}. От {$userEmail}";
+                $subject = 'Тема письма';
+                $result = mail($adminEmail, $subject, $message);
+                $result = true;
+                header('Refresh: 3; URL='.ROOT.'/index.php');
+            }
+
+        }
+
+        require_once(ROOT . '/views/site/contact.php');
+
+        return true;
+    }
+
+
 }

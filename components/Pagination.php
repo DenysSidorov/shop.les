@@ -169,7 +169,7 @@ class Pagination
      */
     private function setCurrentPage($currentPage)
     {
-        # Получаем номер страницы
+        #Получаем номер страницы
         $this->current_page = $currentPage;
 
         # Если текущая страница боле нуля
