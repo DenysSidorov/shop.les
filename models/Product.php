@@ -1,15 +1,18 @@
 <?php
 
- class Product
+class Product
 {
 
-     private static $onePageView = 2;
+    private static $onePageView = 2;
 
-    public static function setOnePageView($number){
+    public static function setOnePageView($number)
+    {
         Product::$onePageView = $number;
 
     }
-    public static function getOnePageView(){
+
+    public static function getOnePageView()
+    {
         return Product::$onePageView;
     }
 //   public static $SHOW_BY_DEFAULT = 6;
@@ -49,13 +52,13 @@
     public static function getProductsListByCategory($categoryId = false, $page)
     {
         if ($categoryId) {
-/**/
+            /**/
             $offset = ($page - 1) * self::getOnePageView();
             // echo 'page # '.$page;
 
             $db = Db::getConnection();
             $products = array();
-/**/
+            /**/
             //$result = $db->query("SELECT id, name, price, image, is_new FROM product "
             $result = $db->query("SELECT id, name, price, is_new FROM product "
                 . "WHERE status = '1' AND category_id = '$categoryId' "
@@ -98,6 +101,20 @@
         }
     }
 
+    public static function deleteProductById($id)
+    {
+        $id = intval($id);
+
+        if ($id) {
+            $db = Db::getConnection();
+
+            $result = $db->query('SELECT * FROM product WHERE id=' . $id);
+            $result->setFetchMode(PDO::FETCH_ASSOC);
+
+            return $result->fetch();
+        }
+    }
+
 
     /**
      * Returns an array of recommended products
@@ -108,7 +125,7 @@
 
         $productsList = array();
 
-        $result = $db->query('SELECT id, name, price, image, is_new FROM product '
+        $result = $db->query('SELECT id, name, price, is_new FROM product '
             . 'WHERE status = "1" AND is_recommended = "1"'
             . 'ORDER BY id DESC ');
 
@@ -116,7 +133,7 @@
         while ($row = $result->fetch()) {
             $productsList[$i]['id'] = $row['id'];
             $productsList[$i]['name'] = $row['name'];
-            $productsList[$i]['image'] = $row['image'];
+            //$productsList[$i]['image'] = $row['image'];
             $productsList[$i]['price'] = $row['price'];
             $productsList[$i]['is_new'] = $row['is_new'];
             $i++;
@@ -125,11 +142,13 @@
         return $productsList;
     }
 
-    public  static function getTotalProductsInCategory($categoryId){
+    public static function getTotalProductsInCategory($categoryId)
+    {
+        $categoryId = intval($categoryId);
         $db = Db::getConnection();
 
         $result = $db->query('SELECT count(id) AS count FROM product '
-            . 'WHERE status="1" AND category_id ="'.$categoryId.'"');
+            . 'WHERE status="1" AND category_id ="' . $categoryId . '"');
         $result->setFetchMode(PDO::FETCH_ASSOC);
         $row = $result->fetch();
 

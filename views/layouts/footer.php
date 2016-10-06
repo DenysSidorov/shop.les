@@ -19,6 +19,7 @@
 <script src="/template/js/main.js"></script>
 <script>
     $(document).ready(function(){
+//        $(".item").first().addClass("active");
         $(".add-to-cart").click(function () {
             var id = $(this).attr("data-id");
             $.post("/cart/addAjax/"+id, {}, function (data) {

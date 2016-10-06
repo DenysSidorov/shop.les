@@ -7,6 +7,18 @@ class UserCart
      * Добавление товара в корзину (сессию)
      * @param int $id
      */
+    public static function deleteProductFromCart($id)
+    {
+        $id = intval($id);
+        $productsInCart = array();
+        if (isset($_SESSION['products'])) {
+            $productsInCart = $_SESSION['products'];
+            unset($productsInCart[$id]);
+            $_SESSION['products'] = $productsInCart;
+        }
+        return true;
+    }
+
     public static function addProduct($id)
     {
         $id = intval($id);
@@ -22,7 +34,7 @@ class UserCart
 
         // Если товар есть в корзине, но был добавлен еще раз, увеличим количество
         if (array_key_exists($id, $productsInCart)) {
-            $productsInCart[$id] ++;
+            $productsInCart[$id]++;
         } else {
             // Добавляем нового товара в корзину
             $productsInCart[$id] = 1;
@@ -35,7 +47,7 @@ class UserCart
 
     /**
      * Подсчет количество товаров в корзине (в сессии)
-     * @return int 
+     * @return int
      */
     public static function countItems()
     {
@@ -63,14 +75,21 @@ class UserCart
         $productsInCart = self::getProducts();
 
         $total = 0;
-        
-        if ($productsInCart) {            
+
+        if ($productsInCart) {
             foreach ($products as $item) {
                 $total += $item['price'] * $productsInCart[$item['id']];
             }
         }
 
-        return round($total,2);
+        return round($total, 2);
+    }
+
+    public static function clear()
+    {
+        if (isset($_SESSION)) {
+            $_SESSION = array();
+        }
     }
 
 }

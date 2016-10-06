@@ -29,6 +29,7 @@ class CatalogController
 
         $categories = array();
         //include_once  '../models/Category.php';
+        $categories = array();
         $categories = Category::getCategoriesList(); //arr[row][params]
 
         $categoryProducts = array();

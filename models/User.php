@@ -23,6 +23,16 @@ class User
     /**
      * Проверяет имя: не меньше, чем 2 символа
      */
+
+
+    public static function checkPhone($phone){
+        $normalName = trim(strip_tags($phone));
+        if (strlen($normalName) >= 5) {
+            return true;
+        }
+        return false;
+    }
+
     public static function checkName($name)
     {
         $normalName = trim(strip_tags($name));

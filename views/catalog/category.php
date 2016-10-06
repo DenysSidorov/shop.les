@@ -40,8 +40,8 @@
 <!--                            </p>-->
 <!--                        </form>-->
 
-                        <form method="get" action="/models/Temp.php" name="myForm">
-                            <select name="namef" onChange="document.forms.myForm.submit ()">
+                        <form method="get" action="/controllers/Temp.php" name="myForm">
+                            <select name="namef" onChange="document.forms.myForm.submit()">
                                 <option value='10'  selected>10</option>
                                 <option value='20' >20</option>
                                 <option value='50' >50</option>

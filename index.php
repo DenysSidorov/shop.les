@@ -10,7 +10,7 @@ session_start();
 
 // 2. Подключение файлов системы
 define('ROOT', dirname(__FILE__));
-
+//include_once (ROOT.'/models/Product.php');
 //require_once(ROOT.'/components/Router.php');
 //require_once(ROOT.'/components/Db.php');
 require_once(ROOT.'/components/Autoload.php');

@@ -10,7 +10,7 @@ class CartController
         /*
          *  Если AJAX-добавление в корзину включено, то этот код не выполняется.
          * */
-        //UserCart::addProduct($id);
+       UserCart::addProduct($id);
 
         // Возвращаем пользователя на страницу
         $referrer = $_SERVER['HTTP_REFERER'];
@@ -53,6 +53,7 @@ class CartController
 
     public function actionDelete($id)
     {
+        UserCart::deleteProductFromCart($id);
         // Удалить товар из корзины
         // Возвращаем пользователя на страницу
         header("Location: /cart/");
@@ -90,7 +91,7 @@ class CartController
                 // Форма заполнена корректно? - Да
                 // Сохраняем заказ в базе данных
                 // Собираем информацию о заказе
-                $productsInCart = Cart::getProducts();
+                $productsInCart = UserCart::getProducts();
                 if (User::isGuest()) {
                     $userId = false;
                 } else {
@@ -102,27 +103,27 @@ class CartController
 
                 if ($result) {
                     // Оповещаем администратора о новом заказе
-                    $adminEmail = 'php.start@mail.ru';
-                    $message = 'http://digital-mafia.net/admin/orders';
+                    $adminEmail = '2wsxcde34rfvvfr4@gmail.com';
+                    $message = 'yoursite.com/admin/orders';
                     $subject = 'Новый заказ!';
                     mail($adminEmail, $subject, $message);
 
                     // Очищаем корзину
-                    Cart::clear();
+                    UserCart::clear();
                 }
             } else {
                 // Форма заполнена корректно? - Нет
                 // Итоги: общая стоимость, количество товаров
-                $productsInCart = Cart::getProducts();
+                $productsInCart = UserCart::getProducts();
                 $productsIds = array_keys($productsInCart);
                 $products = Product::getProdustsByIds($productsIds);
-                $totalPrice = Cart::getTotalPrice($products);
-                $totalQuantity = Cart::countItems();
+                $totalPrice = UserCart::getTotalPrice($products);
+                $totalQuantity = UserCart::countItems();
             }
         } else {
             // Форма отправлена? - Нет
             // Получием данные из корзины
-            $productsInCart = Cart::getProducts();
+            $productsInCart = UserCart::getProducts();
 
             // В корзине есть товары?
             if ($productsInCart == false) {
@@ -134,8 +135,8 @@ class CartController
                 // Итоги: общая стоимость, количество товаров
                 $productsIds = array_keys($productsInCart);
                 $products = Product::getProdustsByIds($productsIds);
-                $totalPrice = Cart::getTotalPrice($products);
-                $totalQuantity = Cart::countItems();
+                $totalPrice = UserCart::getTotalPrice($products);
+                $totalQuantity = UserCart::countItems();
 
 
                 $userName = false;
