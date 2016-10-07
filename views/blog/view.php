@@ -5,7 +5,7 @@
         <title>Culinary by Free Css Templates</title>
         <meta name="keywords" content="" />
         <meta name="description" content="" />
-        <link href="/template/css/style.css" rel="stylesheet" type="text/css" />
+        <link href="/template/css/style_blog.css" rel="stylesheet" type="text/css" />
     </head>
     <body>
         <div id="wrapper">

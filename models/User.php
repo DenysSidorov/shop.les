@@ -170,5 +170,16 @@ class User
         }
         return true;
     }
+    public static function isAdmin(){
+        $isAdmin = false;
+        if(!User::isGuest()){
+            $idUser = User::checkLogged();
+            $user = User::getUserById($idUser);
+            if ($user['role'] == 'admin') {
+               $isAdmin = true;
+            }
+        };
+        return $isAdmin;
+    }
 
 }

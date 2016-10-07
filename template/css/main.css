@@ -2527,5 +2527,10 @@ h2.title {
 #cart-count{
   color: #FE980F;
 }
-
+.updateImageInput{
+  margin: 10px;
+}
+.imageUpdateBorder{
+  border: 1px solid #ff6d00;
+}
 

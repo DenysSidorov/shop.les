@@ -35,16 +35,17 @@ class Blog
         
         $result = $db->query('SELECT id, title, date, short_content '
                 . 'FROM blog '
-                . 'ORDER BY date DESC '
-                . 'LIMIT 3');        
+                . 'ORDER BY date DESC ');
 
         $i = 0;
+
         while($row = $result->fetch()) {
             $blogList[$i]['id'] = $row['id'];
             $blogList[$i]['title'] = $row['title'];
             $blogList[$i]['date'] = $row['date'];
             $blogList[$i]['short_content'] = $row['short_content'];
             $i++;
+
         }
 
         return $blogList;

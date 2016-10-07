@@ -16,10 +16,10 @@ class SiteController
 
         $recommendedProducts  = array();
         $recommendedProducts = Product::getRecommendedProducts();
-        print_r( $recommendedProducts);
+
+        $isAdmin  = User::isAdmin();
 
 
-        
         require_once(ROOT . '/views/site/index.php');
 
         return true;
