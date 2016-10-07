@@ -72,16 +72,19 @@ class Router
                 }
 
                 // Создать объект, вызвать метод (т.е. action)
-                // print_r($controllerName);
+
                 $controllerObject = new $controllerName;
 
                 // see https://php.ru/manual/function.call-user-func-array.html
                 //  Передаем в actionName $parameters
-                //print_r($parameters);
+
                 $result = call_user_func_array(array($controllerObject, $actionName), $parameters);
-                
-                
+                    if(!$result){
+                        require_once(ROOT . '/views/404/error.php');
+                    }
+
                 if ($result != null) {
+//                    require_once(ROOT . '/views/404/error.php');
                     break;
                 }
             }
