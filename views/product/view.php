@@ -27,7 +27,9 @@
                     <div class="row">
                         <div class="col-sm-5">
                             <div class="view-product">
-                                <img src="<?= Product::getImage($product['id'])?>" alt="" />
+                                <img src="/template/images/w-mask.png" alt="" title="">
+                                <div class="workPhoto2 backgroundImage"
+                                     style="background-image:url('<?php echo Product::getImage($product['id']) ?>');"></div>
                             </div>
                         </div>
                         <div class="col-sm-7">
@@ -37,16 +39,19 @@
                                 <p>Код товара: <?php echo $product['code'];?></p>
                                 <span>
                                     <span>US $<?php echo $product['price'];?></span>
-                                    <label>Количество:</label>
-                                    <input type="text" value="3" />
-                                    <button type="button" class="btn btn-fefault cart">
-                                        <i class="fa fa-shopping-cart"></i>
-                                        В корзину
-                                    </button>
+                                    <br>
+<!--                                    <label>Количество:</label>-->
+<!--                                    <input type="text" value="1" />-->
+<!--                                    <button type="button" data-id="--><?php //echo $product['id']?><!--" class="btn btn-fefault cart">-->
+<!--                                        <i class="fa fa-shopping-cart"></i>-->
+<!--                                        В корзину-->
+<!--                                    </button>-->
+                                    <a href="/cart/add/<?php echo $product['id']; ?>" data-id="<?php echo $product['id']?>"
+                                       class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В корзину</a>
                                 </span>
-                                <p><b>Наличие:</b> На складе</p>
-                                <p><b>Состояние:</b> Новое</p>
-                                <p><b>Производитель:</b> D&amp;G</p>
+                                <p><b>Наличие: </b><?php echo isset($product['availability']) ? 'Есть на складе': 'Нет на складе' ?></p>
+                                <p><b>Производитель:</b> <? echo $product['brand']?></p>
+                                <p><b>Категория:</b> <? echo $catName?></p>
                             </div><!--/product-information-->
                         </div>
                     </div>

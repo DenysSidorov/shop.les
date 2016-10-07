@@ -31,7 +31,9 @@
                             <div class="product-image-wrapper">
                                 <div class="single-products">
                                     <div class="productinfo text-center">
-                                        <img src="<?= Product::getImage($product['id'])?>" alt="" />
+                                        <img src="/template/images/w-mask.png" alt="" title="">
+                                        <div class="workPhoto backgroundImage"
+                                             style="background-image:url('<?php echo Product::getImage($product['id']) ?>');"></div>
                                         <h2><?php echo $product['price'];?>$</h2>
                                         <p>
                                             <a href="/product/<?php echo $product['id'];?>">

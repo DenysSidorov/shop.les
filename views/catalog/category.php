@@ -27,27 +27,18 @@
                 <div class="col-sm-9 padding-right">
                     <div class="features_items"><!--features_items-->
 
-<!--                        <form action="#">-->
-<!--                            <p>-->
-<!--                                <label class="label">Количество на странице:</label>-->
-<!--                                <select class="turnintodropdown">-->
-<!--                                    <option>5</option>-->
-<!--                                    <option>10</option>-->
-<!--                                    <option>20</option>-->
-<!--                                    <option>50</option>-->
-<!--                                    <option>100</option>-->
-<!--                                </select>-->
-<!--                            </p>-->
-<!--                        </form>-->
+<!--
 
-                        <form method="get" action="/controllers/Temp.php" name="myForm">
-                            <select name="namef" onChange="document.forms.myForm.submit()">
-                                <option value='10'  selected>10</option>
-                                <option value='20' >20</option>
-                                <option value='50' >50</option>
-                                <option value='100' >100</option>
-                            </select>
-                        </form>
+<!--                        <form method="POST"  name="myForm"">-->
+<!--<!--
+<!--                            <select name="namef" onChange="document.forms.myForm.submit()">-->
+<!--<!--
+<!--                                <option value='--><?//= Product::getOnePageView()?><!--'  selected>--><?//= Product::getOnePageView()?><!--</option>-->
+<!--                                <option value='5' >5</option>-->
+<!--                                <option value='50' >50</option>-->
+<!--                                <option value='100' >100</option>-->
+<!--                            </select>-->
+<!--                        </form>-->
 
                         <h2 class="title text-center">Последние товары</h2>
 
@@ -56,7 +47,9 @@
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <img src="<?= Product::getImage($product['id'])?>" alt=""/>
+                                            <img src="/template/images/w-mask.png" alt="" title="">
+                                            <div class="workPhoto backgroundImage"
+                                                 style="background-image:url('<?php echo Product::getImage($product['id']) ?>');"></div>
                                             <h2><?php echo $product['price']; ?>$</h2>
                                             <p>
                                                 <a href="/product/<?php echo $product['id']; ?>">

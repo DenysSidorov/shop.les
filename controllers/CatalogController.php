@@ -27,8 +27,11 @@ class CatalogController
         //echo $categoryId.'  categoria id '.'<br>';
         //echo $page.'  page # '.'<br>';
 
-        $categories = array();
-        //include_once  '../models/Category.php';
+        if (isset($_POST['namef'])){
+            Product::setOnePageView($_POST['namef']);
+        }
+
+
         $categories = array();
         $categories = Category::getCategoriesList(); //arr[row][params]
 

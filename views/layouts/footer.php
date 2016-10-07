@@ -1,13 +1,14 @@
-<footer id="footer"><!--Footer-->
-    <div class="footer-bottom">
-        <div class="container">
-            <div class="row">
-                <p class="pull-left">Copyright © 2016</p>
-                <p class="pull-right">Denis Sidorov PHP + MySQL</p>
-            </div>
-        </div>
-    </div>
-</footer><!--/Footer-->
+<!--<div class="preFooterGo"></div>-->
+<!--<footer id="footer"><!--Footer-->
+<!--    <div class="footer-bottom">-->
+<!--        <div class="container">-->
+<!--            <div class="row">-->
+<!--                <p class="pull-left">Copyright © 2016</p>-->
+<!--                <p class="pull-right">Denis Sidorov PHP + MySQL</p>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</footer><!--/Footer-->
 
 
 

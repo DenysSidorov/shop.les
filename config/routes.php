@@ -42,6 +42,7 @@ return array(
     'admin/order/delete/([0-9]+)' => 'adminOrder/delete/$1',
     'admin/order/view/([0-9]+)' => 'adminOrder/view/$1',
     'admin/order' => 'adminOrder/index',
+    'select/count' => 'countSelect/index',
     // Админпанель:
     'admin' => 'admin/index',
     // Главная

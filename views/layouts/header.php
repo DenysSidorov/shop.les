@@ -110,7 +110,7 @@
                                 </ul>
                             </li>
                             <li><a href="/blog/">Блог</a></li>
-                            <li><a href="/about/">О магазине</a></li>
+                            <li><a href="#">О магазине</a></li>
                             <li><a href="/contacts/">Контакты</a></li>
                         </ul>
                     </div>
