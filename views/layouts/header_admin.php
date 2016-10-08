@@ -29,6 +29,9 @@
 <div class="page-wrapper">
 
     <header id="header"><!--header-->
+        <?php if (isset($isAdmin) && $isAdmin == true ):?>
+            <a class="adminPanel" href="/admin/">Перейти в администраторскую панель</a>
+        <?php endif;?>
         <div class="header_top"><!--header_top-->
             <div class="container">
                 <div class="row">

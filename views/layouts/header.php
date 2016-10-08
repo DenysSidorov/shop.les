@@ -30,7 +30,7 @@
 <body>
 <header id="header"><!--header-->
     <?php if (isset($isAdmin) && $isAdmin == true ):?>
-        <a href="/admin/">Перейти в администраторскую панель</a>
+        <a href="/admin/" class="adminPanel">Перейти в администраторскую панель</a>
     <?php endif;?>
 
     <div class="header_top"><!--header_top-->

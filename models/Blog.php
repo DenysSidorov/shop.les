@@ -1,5 +1,5 @@
 <?php
-
+declare(strict_types = 1);
 class Blog
 {
 
@@ -7,7 +7,7 @@ class Blog
      * Returns single blog item with specified id
      * @param integer $id
      */
-    public static function getBlogItemById($id)
+    public static function getBlogItemById(int $id):int
     {
         $id = intval($id);
 
@@ -27,7 +27,7 @@ class Blog
     /**
      * Returns an array of blog items
      */
-    public static function getBlogList() {
+    public static function getBlogList():array {
  
         $db = Db::getConnection();
         

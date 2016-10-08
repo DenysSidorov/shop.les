@@ -1,17 +1,18 @@
 <?php
+declare(strict_types = 1);
 
 class Product
 {
 
-    private static $onePageView = 2;
+    private static $onePageView = 5;
 
-    public static function setOnePageView($number)
+    public static function setOnePageView(int $number)
     {
         Product::$onePageView = $number;
 
     }
 
-    public static function getOnePageView()
+    public static function getOnePageView():int
     {
         return Product::$onePageView;
     }
@@ -21,7 +22,7 @@ class Product
     /**
      * Returns an array of products
      */
-    public static function getLatestProducts($count)
+    public static function getLatestProducts(int $count):array
     {
         $count = intval($count);
         $db = Db::getConnection();
@@ -37,7 +38,7 @@ class Product
         while ($row = $result->fetch()) {
             $productsList[$i]['id'] = $row['id'];
             $productsList[$i]['name'] = $row['name'];
-           //  $productsList[$i]['image'] = $row['image'];
+            //  $productsList[$i]['image'] = $row['image'];
             $productsList[$i]['price'] = $row['price'];
             $productsList[$i]['is_new'] = $row['is_new'];
             $i++;
@@ -49,7 +50,7 @@ class Product
     /**
      * Returns an array of products by one category
      */
-    public static function getProductsListByCategory($categoryId = false, $page)
+    public static function getProductsListByCategory($categoryId = false, $page):array
     {
         if ($categoryId) {
             /**/
@@ -87,7 +88,7 @@ class Product
      * Returns product item by id
      * @param integer $id
      */
-    public static function getProductById($id)
+    public static function getProductById( $id):array
     {
         $id = intval($id);
 
@@ -106,7 +107,7 @@ class Product
      * @param integer $id <p>id товара</p>
      * @return boolean <p>Результат выполнения метода</p>
      */
-    public static function deleteProductById($id)
+    public static function deleteProductById( $id)
     {
         $db = Db::getConnection();
         // Текст запроса к БД
@@ -128,7 +129,7 @@ class Product
     /**
      * Returns an array of recommended products
      */
-    public static function getRecommendedProducts()
+    public static function getRecommendedProducts():array
     {
         $db = Db::getConnection();
 
@@ -152,7 +153,7 @@ class Product
     }
 
     public
-    static function getTotalProductsInCategory($categoryId)
+    static function getTotalProductsInCategory( $categoryId)
     {
         $categoryId = intval($categoryId);
         $db = Db::getConnection();
@@ -167,7 +168,7 @@ class Product
     }
 
     public
-    static function getProdustsByIds($idsArray)
+    static function getProdustsByIds(array $idsArray):array
     {
         $products = array();
 
@@ -196,7 +197,7 @@ class Product
      * Возвращает список товаров
      * @return array <p>Массив с товарами</p>
      */
-    public static function getProductsList()
+    public static function getProductsList():array
     {
         // Соединение с БД
         $db = Db::getConnection();
@@ -220,7 +221,7 @@ class Product
      * @param array $options <p>Массив с информацией о товаре</p>
      * @return integer <p>id добавленной в таблицу записи</p>
      */
-    public static function createProduct($options)
+    public static function createProduct(array $options)
     {
         // Соединение с БД
         $db = Db::getConnection();
@@ -259,7 +260,7 @@ class Product
      * @param array $options <p>Массив с информацей о товаре</p>
      * @return boolean <p>Результат выполнения метода</p>
      */
-    public static function updateProductById($id, $options)
+    public static function updateProductById( $id,array $options)
     {
         // Соединение с БД
         $db = Db::getConnection();
@@ -300,7 +301,7 @@ class Product
      * @param integer $id
      * @return string <p>Путь к изображению</p>
      */
-    public static function getImage($id)
+    public static function getImage(int $id):string
     {
         // Название изображения-пустышки
         $noImage = 'no-image.jpg';
@@ -311,7 +312,7 @@ class Product
         // Путь к изображению товара
         $pathToProductImage = $path . $id . '.jpg';
 
-        if (file_exists($_SERVER['DOCUMENT_ROOT'].$pathToProductImage)) {
+        if (file_exists($_SERVER['DOCUMENT_ROOT'] . $pathToProductImage)) {
             // Если изображение для товара существует
             // Возвращаем путь изображения товара
             return $pathToProductImage;

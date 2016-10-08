@@ -1,5 +1,5 @@
 <?php
-
+declare(strict_types = 1);
 class UserCart
 {
 
@@ -7,7 +7,7 @@ class UserCart
      * Добавление товара в корзину (сессию)
      * @param int $id
      */
-    public static function deleteProductFromCart($id)
+    public static function deleteProductFromCart( $id)
     {
         $id = intval($id);
         $productsInCart = array();
@@ -49,7 +49,7 @@ class UserCart
      * Подсчет количество товаров в корзине (в сессии)
      * @return int
      */
-    public static function countItems()
+    public static function countItems():int
     {
         if (isset($_SESSION['products'])) {
             $count = 0;

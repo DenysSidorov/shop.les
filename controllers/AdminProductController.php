@@ -1,4 +1,5 @@
 <?php
+declare(strict_types = 1);
 /**
  * Контроллер AdminProductController
  * Управление товарами в админпанели

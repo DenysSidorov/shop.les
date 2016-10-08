@@ -1,5 +1,5 @@
 <?php
-
+declare(strict_types = 1);
 class CabinetController
 {
 
@@ -7,7 +7,7 @@ class CabinetController
     {
         // Получаем идентификатор пользователя из сессии
         $userId = User::checkLogged();
-
+        $isAdmin  = User::isAdmin();
        // echo $userId;
         
         // Получаем информацию о пользователе из БД

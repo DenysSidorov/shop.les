@@ -1,5 +1,5 @@
 <?php
-
+declare(strict_types = 1);
 include_once ROOT . '/models/Blog.php';
 
 class BlogController

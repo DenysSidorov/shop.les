@@ -1,9 +1,9 @@
 <?php
-
+declare(strict_types = 1);
 class CartController
 {
 
-    public function actionAdd($id)
+    public function actionAdd(int $id)
     {
         // Добавляем товар в корзину
 

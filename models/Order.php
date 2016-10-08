@@ -1,23 +1,24 @@
 <?php
+declare(strict_types = 1);
 
 class Order
 {
 
     /**
-     * Сохранение заказа 
+     * Сохранение заказа
      * @param type $name
      * @param type $email
      * @param type $password
      * @return type
      */
-    public static function save($userName, $userPhone, $userComment, $userId, $products)
+    public static function save(string $userName, string $userPhone, string $userComment, int $userId, array $products)
     {
         $products = json_encode($products);
 
         $db = Db::getConnection();
 
         $sql = 'INSERT INTO product_order (user_name, user_phone, user_comment, user_id, products) '
-                . 'VALUES (:user_name, :user_phone, :user_comment, :user_id, :products)';
+            . 'VALUES (:user_name, :user_phone, :user_comment, :user_id, :products)';
 
         $result = $db->prepare($sql);
         $result->bindParam(':user_name', $userName, PDO::PARAM_STR);
@@ -33,7 +34,7 @@ class Order
      * Возвращает список заказов
      * @return array <p>Список заказов</p>
      */
-    public static function getOrdersList()
+    public static function getOrdersList():array
     {
         // Соединение с БД
         $db = Db::getConnection();
@@ -59,7 +60,7 @@ class Order
      * @param integer $status <p>Статус</p>
      * @return string <p>Текстовое пояснение</p>
      */
-    public static function getStatusText($status)
+    public static function getStatusText($status):string
     {
         switch ($status) {
             case '1':
@@ -82,7 +83,7 @@ class Order
      * @param integer $id <p>id заказа</p>
      * @return boolean <p>Результат выполнения метода</p>
      */
-    public static function deleteOrderById($id)
+    public static function deleteOrderById(int $id)
     {
         // Соединение с БД
         $db = Db::getConnection();
@@ -101,7 +102,7 @@ class Order
      * @param integer $id <p>id</p>
      * @return array <p>Массив с информацией о заказе</p>
      */
-    public static function getOrderById($id)
+    public static function getOrderById($id):array
     {
         // Соединение с БД
         $db = Db::getConnection();
@@ -132,7 +133,7 @@ class Order
      * @param integer $status <p>Статус <i>(включено "1", выключено "0")</i></p>
      * @return boolean <p>Результат выполнения метода</p>
      */
-    public static function updateOrderById($id, $userName, $userPhone, $userComment, $date, $status)
+    public static function updateOrderById(int $id, string $userName, string $userPhone, string $userComment, $date, $status)
     {
         // Соединение с БД
         $db = Db::getConnection();

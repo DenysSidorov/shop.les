@@ -1,12 +1,12 @@
 <?php
-
+declare(strict_types = 1);
 class Category
 {
 
     /**
      * Returns an array[row][params] of categories
      */
-    public static function getCategoriesList()
+    public static function getCategoriesList():array
     {
         //connect PDO
         //require_once(ROOT.'/components/Db.php');
@@ -33,7 +33,7 @@ class Category
      * (при этом в результат попадают и включенные и выключенные категории)
      * @return array <p>Массив категорий</p>
      */
-    public static function getCategoriesListAdmin()
+    public static function getCategoriesListAdmin():array
     {
         // Соединение с БД
         $db = Db::getConnection();
@@ -60,7 +60,7 @@ class Category
      * @param integer $status <p>Статус</p>
      * @return string <p>Текстовое пояснение</p>
      */
-    public static function getStatusText($status)
+    public static function getStatusText(string $status):string
     {
         switch ($status) {
             case '1':
@@ -77,7 +77,7 @@ class Category
      * @param integer $id
      * @return boolean <p>Результат выполнения метода</p>
      */
-    public static function deleteCategoryById($id)
+    public static function deleteCategoryById(int $id)
     {
         // Соединение с БД
         $db = Db::getConnection();
@@ -96,7 +96,7 @@ class Category
      * @param integer $id <p>id категории</p>
      * @return array <p>Массив с информацией о категории</p>
      */
-    public static function getCategoryById($id)
+    public static function getCategoryById(int $id)
     {
         // Соединение с БД
         $db = Db::getConnection();
@@ -126,7 +126,7 @@ class Category
      * @param integer $status <p>Статус <i>(включено "1", выключено "0")</i></p>
      * @return boolean <p>Результат выполнения метода</p>
      */
-    public static function updateCategoryById($id, $name, $sortOrder, $status)
+    public static function updateCategoryById(int $id, string $name, $sortOrder, $status)
     {
         // Соединение с БД
         $db = Db::getConnection();

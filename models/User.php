@@ -1,10 +1,10 @@
 <?php
-
+declare(strict_types = 1);
 class User
 {
 
 
-    public static function register($name, $email, $password)
+    public static function register(string $name, string $email,string $password)
     {
 
         $db = Db::getConnection();
@@ -25,7 +25,7 @@ class User
      */
 
 
-    public static function checkPhone($phone){
+    public static function checkPhone(string $phone){
         $normalName = trim(strip_tags($phone));
         if (strlen($normalName) >= 5) {
             return true;
@@ -33,7 +33,7 @@ class User
         return false;
     }
 
-    public static function checkName($name)
+    public static function checkName(string $name)
     {
         $normalName = trim(strip_tags($name));
         if (strlen($normalName) >= 2) {
@@ -45,7 +45,7 @@ class User
     /**
      * Проверяет имя: не меньше, чем 6 символов
      */
-    public static function checkPassword($password)
+    public static function checkPassword(string $password)
     {
         $normalPass = trim(strip_tags($password));
         if (strlen($normalPass) >= 6) {
@@ -57,7 +57,7 @@ class User
     /**
      * Проверяет email
      */
-    public static function checkEmail($email)
+    public static function checkEmail(string $email)
     {
         $normalMail = trim(strip_tags($email));
         if (filter_var($normalMail, FILTER_VALIDATE_EMAIL)) {
@@ -66,7 +66,7 @@ class User
         return false;
     }
 
-    public static function checkEmailExists($email)
+    public static function checkEmailExists(string $email)
     {
 
         $db = Db::getConnection();
@@ -82,7 +82,7 @@ class User
         return false;
     }
 
-    public static function getUserById($id)
+    public static function getUserById( $id)
     {
         if ($id) {
             $db = Db::getConnection();
@@ -100,7 +100,7 @@ class User
         }
     }
 
-    public static function edit($id, $name, $password)
+    public static function edit(int $id, string $name, string $password)
     {
         $db = Db::getConnection();
 
@@ -121,7 +121,7 @@ class User
      * @param string $password
      * @return mixed : ingeger user id or false
      */
-    public static function checkUserData($email, $password)
+    public static function checkUserData(string $email,string $password)
     {
         $db = Db::getConnection();
 
@@ -145,7 +145,7 @@ class User
      * @param string $email
      * @param string $password
      */
-    public static function auth($userId)
+    public static function auth(int $userId)
     {
 
         $_SESSION['user'] = $userId;

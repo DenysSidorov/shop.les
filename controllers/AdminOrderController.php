@@ -1,5 +1,5 @@
 <?php
-
+declare(strict_types = 1);
 /**
  * Контроллер AdminOrderController
  * Управление заказами в админпанели
