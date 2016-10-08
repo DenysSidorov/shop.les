@@ -2,8 +2,8 @@
 ![Карточка товара](https://github.com/DenysSidorov/shop.les/raw/master/gitPhoto/example2.jpg)
 
 ----Пользователи----
-admin  => ss@ss.ss   PASSword
-user => aaaaaa@aaa.aaa   123456
+* admin  => ss@ss.ss   PASSword
+* user => aaaaaa@aaa.aaa   123456
 
 ----РОУТИНГ-----
      //Товар
