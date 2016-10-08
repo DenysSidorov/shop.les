@@ -50,7 +50,7 @@ class Product
     /**
      * Returns an array of products by one category
      */
-    public static function getProductsListByCategory($categoryId = false, $page):array
+    public static function getProductsListByCategory($categoryId = false, $page)
     {
         if ($categoryId) {
             /**/
