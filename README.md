@@ -1,4 +1,5 @@
-Реализация MVC - проекта на PHP (CSS3, HTML5, JQuery, PHP7, MySQL)
+- Реализация MVC - проекта на PHP (CSS3, HTML5, JQuery, PHP7, MySQL)
+- Рабочий пример - http://php-mvc-shop.zzz.com.ua/
 
 ![Главная](https://github.com/DenysSidorov/shop.les/raw/master/gitPhoto/example.jpg)
 ![Карточка товара](https://github.com/DenysSidorov/shop.les/raw/master/gitPhoto/example2.jpg)
