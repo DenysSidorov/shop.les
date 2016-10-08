@@ -1,18 +1,18 @@
 <?php
-declare(strict_types = 1);
+
 
 class Product
 {
 
     private static $onePageView = 5;
 
-    public static function setOnePageView(int $number)
+    public static function setOnePageView( $number)
     {
         Product::$onePageView = $number;
 
     }
 
-    public static function getOnePageView():int
+    public static function getOnePageView()
     {
         return Product::$onePageView;
     }
@@ -22,7 +22,7 @@ class Product
     /**
      * Returns an array of products
      */
-    public static function getLatestProducts(int $count):array
+    public static function getLatestProducts( $count)
     {
         $count = intval($count);
         $db = Db::getConnection();
@@ -88,7 +88,7 @@ class Product
      * Returns product item by id
      * @param integer $id
      */
-    public static function getProductById( $id):array
+    public static function getProductById( $id)
     {
         $id = intval($id);
 
@@ -129,7 +129,7 @@ class Product
     /**
      * Returns an array of recommended products
      */
-    public static function getRecommendedProducts():array
+    public static function getRecommendedProducts()
     {
         $db = Db::getConnection();
 
@@ -168,7 +168,7 @@ class Product
     }
 
     public
-    static function getProdustsByIds(array $idsArray):array
+    static function getProdustsByIds(array $idsArray)
     {
         $products = array();
 
@@ -197,7 +197,7 @@ class Product
      * Возвращает список товаров
      * @return array <p>Массив с товарами</p>
      */
-    public static function getProductsList():array
+    public static function getProductsList()
     {
         // Соединение с БД
         $db = Db::getConnection();
@@ -301,7 +301,7 @@ class Product
      * @param integer $id
      * @return string <p>Путь к изображению</p>
      */
-    public static function getImage(int $id):string
+    public static function getImage( $id)
     {
         // Название изображения-пустышки
         $noImage = 'no-image.jpg';

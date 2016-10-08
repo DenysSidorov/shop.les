@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 /*  We created AutoLoad Class, which do it
 //include_once ROOT . '/models/Category.php';
 //include_once ROOT . '/models/Product.php';

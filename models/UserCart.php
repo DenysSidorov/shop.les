@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 class UserCart
 {
 
@@ -49,7 +49,7 @@ class UserCart
      * Подсчет количество товаров в корзине (в сессии)
      * @return int
      */
-    public static function countItems():int
+    public static function countItems()
     {
         if (isset($_SESSION['products'])) {
             $count = 0;

@@ -1,9 +1,9 @@
 <?php
-declare(strict_types = 1);
+
 //include_once '../models/Product.php';
 //include_once '../controllers/CatalogController.php';
 
-function getUrlRedirect():int
+function getUrlRedirect()
 {
     $numberOfCategory = '';
     if (!empty($_SERVER['HTTP_REFERER'])) {
