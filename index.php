@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 // FRONT CONTROLLER
 
 // 1. Общие настройки
