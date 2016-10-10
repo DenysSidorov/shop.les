@@ -2558,4 +2558,19 @@ h2.title {
 .adminTextSize{
     font-size: 20px;
 }
+.notification {
+    position: fixed;
+    z-index: 1000;
+    padding: 5px;
+    border: 1px solid black;
+    font: normal 30px Georgia;
+    background: white;
+    text-align: center;
+}
 
+.welcome {
+    border-radius: 20px;
+    border: 1px solid #ff6d00;
+    /*background: #ecfff9;*/
+    color: #ff6d00;
+}

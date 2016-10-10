@@ -1,5 +1,7 @@
 <?php
+
 declare(strict_types = 1);
+
 /**
  * Контроллер AdminController
  * Главная страница в админпанели

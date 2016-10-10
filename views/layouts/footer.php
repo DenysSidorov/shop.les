@@ -18,10 +18,13 @@
 <script src="/template/js/price-range.js"></script>
 <script src="/template/js/jquery.prettyPhoto.js"></script>
 <script src="/template/js/main.js"></script>
+<script src="/template/js/addToCart.js"></script>
+
 <script>
     $(document).ready(function(){
 //        $(".item").first().addClass("active");
         $(".add-to-cart").click(function () {
+//            alert('Товар добавлен');
             var id = $(this).attr("data-id");
             $.post("/cart/addAjax/"+id, {}, function (data) {
                 $("#cart-count").html(data);
