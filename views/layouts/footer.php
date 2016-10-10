@@ -18,7 +18,7 @@
 <script src="/template/js/price-range.js"></script>
 <script src="/template/js/jquery.prettyPhoto.js"></script>
 <script src="/template/js/main.js"></script>
-<script src="/template/js/addToCart.js"></script>
+
 
 <script>
     $(document).ready(function(){
@@ -33,5 +33,6 @@
         });
     });
 </script>
+<script src="/template/js/addToCart.js"></script>
 </body>
 </html>

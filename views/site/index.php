@@ -71,10 +71,12 @@
                                                         <div class="workPhoto backgroundImage"
                                                              style="background-image:url('<?php echo Product::getImage($valueRecommend['id']) ?>');"></div>
                                                         <h2><?= $valueRecommend['price'] ?>$</h2>
-                                                        <p><?= $valueRecommend['name'] ?></p>
-                                                        <a href="#" data-id="<?php echo $product['id']; ?>"
-                                                           class="btn btn-default add-to-cart"><i
-                                                                class="fa fa-shopping-cart"></i>В корзину</a>
+                                                        <p><a href="/product/<?php echo $valueRecommend['id']; ?>">
+                                                            <?php echo $valueRecommend['name']; ?>
+                                                        </a></p>
+<!--                                                        <a href="#" data-id="--><?php //echo $product['id']; ?><!--"-->
+<!--                                                           class="btn btn-default add-to-cart"><i-->
+<!--                                                                class="fa fa-shopping-cart"></i>В корзину</a>-->
                                                     </div>
 
                                                 </div>
@@ -96,9 +98,9 @@
                                                     <div class="workPhoto backgroundImage"
                                                          style="background-image:url('/upload/images/products/41.jpg');"></div>
                                                     <h2>$56</h2>
-                                                    <p>Easy Polo Black Edition</p>
-                                                    <a href="#" class="btn btn-default add-to-cart"><i
-                                                            class="fa fa-shopping-cart"></i>В корзину</a>
+                                                    <p style="color: #319dd5; font-weight: 400 ">Easy Polo Black Edition</p>
+<!--                                                    <a href="#" class="btn btn-default add-to-cart"><i-->
+<!--                                                            data-id="1"     class="fa fa-shopping-cart"></i>В корзину</a>-->
                                                 </div>
 
                                             </div>
